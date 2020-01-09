@@ -1,6 +1,5 @@
 package gatos;
 
-
 public class GatoSimple {
 // atributos /////////////////////////////
 
@@ -57,18 +56,28 @@ public class GatoSimple {
       }
     }
   }
-  
-  void apareaCon(GatoSimple pareja) {
+
+  GatoSimple apareaCon(GatoSimple pareja) {
+    //Genera probabilidades
+    int probab = (int) (Math.random() * 100);
+    int probab2 = (int) (Math.random() * 100);
+    //
     if ((this.sexo.equals("macho") && pareja.sexo.equals("hembra")) || (this.sexo.equals("hembra") && pareja.sexo.equals("macho"))) {
-      int probab = (int)(Math.random()*100);
       if (probab > 80) {
-        System.out.println("Lo siento, los gatos no han podido tener una cría");
-      } else {
+        return null;
+      } else { //Cria con exito
         System.out.println("Enhorabuena, los gatos han tenido una cría");
+        System.out.println("Su nombre es cria01");
+        if (probab2 > 50) {
+          GatoSimple cria01 = new GatoSimple("macho");
+          return cria01;
+        } else {
+          GatoSimple cria01 = new GatoSimple("hembra");
+          return cria01;
+        }
       }
     } else {
       System.out.println("No quiero aparearme");
     }
   }
 }
-
